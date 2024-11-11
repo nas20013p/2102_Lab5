@@ -9,6 +9,7 @@ The following are the steps required to set up and run the application:
 3. Run the application using Maven. 
    - mvn spring-boot:run
 
-##After following these steps, the system should be up and running, accessible at http://localhost:8080/
-##Please make sure that Java 17 and Maven are installed on your system before running these commands.
+After following these steps, the system should be up and running, accessible at http://localhost:8080/
+
+Please make sure that Java 17 and Maven are installed on your system before running these commands.
 
