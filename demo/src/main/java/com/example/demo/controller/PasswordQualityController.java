@@ -12,7 +12,7 @@ public class PasswordQualityController {
         if (password.length() >= 8 && password.matches(".*[A-Z].*") && password.matches(".*[0-9].*")) {
             return "Password is strong";
         } else {
-            return "Password is weak";
+            return "Password is weak"; //
         }
     }
 }
