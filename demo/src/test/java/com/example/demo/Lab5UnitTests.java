@@ -16,27 +16,27 @@ public class Lab5UnitTests {
     @Autowired
     private MockMvc mockMvc;
 
-    // @Test
-    // void testGetNextQuizQuestion() throws Exception {
-    //     mockMvc.perform(get("/api/quiz/question/testSession1"))
-    //             .andExpect(status().isOk());
-    // }
+    @Test
+    void testQuizCompletion() throws Exception {
+        mockMvc.perform(get("/quiz"))
+                .andExpect(status().isOk());
+    }
 
-    // @Test
-    // void testQuizCompletion() throws Exception {
-    //     mockMvc.perform(get("/api/quiz/complete"))
-    //             .andExpect(status().isOk());
-    // }
+    @Test
+    void testLogin() throws Exception {
+        mockMvc.perform(get("/login"))
+                .andExpect(status().isOk());
+    }
 
-    // @Test
-    // void testSubmitQuizAnswerCorrect() throws Exception {
-    //     mockMvc.perform(get("/api/quiz/submit/correct"))
-    //             .andExpect(status().isOk());
-    // }
+    @Test
+    void testBadPassword() throws Exception {
+        mockMvc.perform(get("/bad-password"))
+                .andExpect(status().isOk());
+    }
 
-    // @Test
-    // void testSubmitQuizAnswerIncorrect() throws Exception {
-    //     mockMvc.perform(get("/api/quiz/submit/incorrect"))
-    //             .andExpect(status().isOk());
-    // }
+    @Test
+    void testUnknownPage() throws Exception {
+        mockMvc.perform(get("/unknownpage"))
+                .andExpect(status().isNotFound());
+    }
 }
