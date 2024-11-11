@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -17,14 +18,26 @@ public class Lab5UnitTests {
     private MockMvc mockMvc;
 
     @Test
-    void testQuizCompletion() throws Exception {
-        mockMvc.perform(get("/quiz"))
+    void testLogin() throws Exception {
+        mockMvc.perform(get("/login"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void testLogin() throws Exception {
-        mockMvc.perform(get("/login"))
+    void testUnknownPage() throws Exception {
+        mockMvc.perform(get("/unknownpage"))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void testEmailValidationPage() throws Exception {
+        mockMvc.perform(get("/validate-email"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void testQuizCompletion() throws Exception {
+        mockMvc.perform(get("/quiz"))
                 .andExpect(status().isOk());
     }
 
@@ -35,8 +48,12 @@ public class Lab5UnitTests {
     }
 
     @Test
-    void testUnknownPage() throws Exception {
-        mockMvc.perform(get("/unknownpage"))
-                .andExpect(status().isNotFound());
+    void testValidEmailSubmission() throws Exception {
+        mockMvc.perform(post("/validate-email")
+                        .param("email", "test@example.com"))
+                .andExpect(status().isSeeOther())  // Expecting a redirect to the login page
+                .andExpect(result -> result.getResponse().getRedirectedUrl().equals("/login"));
     }
+
 }
+

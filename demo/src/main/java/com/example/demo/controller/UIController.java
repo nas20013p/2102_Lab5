@@ -6,32 +6,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UIController {
-     private final String[] questions = {
-            "Is the sky usually blue?", // True
-            "Is water dry?", // False
-            "Is fire cold?", // False
-            "Is the earth round?", // True
-            "Do birds fly?", // True
-            "Is the sun a star?", // True
-            "Is ice hot?", // False
-            "Can humans breathe underwater without equipment?", // False
-            "Is chocolate sweet?", // True
-            "Is the moon made of cheese?", // False
-            "Do fish live in water?", // True
-            "Is grass typically green?" // True
-            
+    private final String[] questions = {
+            "The sky is blue.",
+            "The grass is green.",
+            "Water is red.",
+            "The sun rises in the east.",
+            "Fire is cold.",
+            "Snow is white.",
+            "Bananas are pink.",
+            "The ocean is deep.",
+            "Mountains are tall.",
+            "Birds can fly."
     };
     int questionIdx = 0;
     int score = 0;
 
     @GetMapping("/login")
     public String loginForm() {
-        return "login";  // This should match the name of your HTML file: login.html
+        return "login";  
     }
 
     @GetMapping("/bad-password")
     public String badPasswordPage() {
-        return "bad-password";  // This should match the name of your HTML file: bad-password.html
+        return "bad-password";  
     }
 
     @GetMapping("/quiz")
@@ -39,7 +36,7 @@ public class UIController {
         System.out.println("IN THE UI CONTROLLER FOR /QUIZ");
         model.addAttribute("question", questions[questionIdx++]);
         model.addAttribute("score", String.valueOf(score++));
-        return "quiz";  // This should match the name of your HTML file: quiz.html
+        return "quiz";  
     }
 }
 

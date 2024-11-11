@@ -1,9 +1,10 @@
+<!-- bad-email.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <title>Invalid Email</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,34 +15,28 @@
             height: 100vh;
             margin: 0;
         }
-        .quiz-container {
+        .bad-email-container {
             background-color: #ffffff;
             padding: 20px 40px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            width: 300px;
+            text-align: center;
         }
         h2 {
-            color: #333;
-            text-align: center;
+            color: #c9302c;
         }
         p {
             color: #555;
             margin-bottom: 20px;
-            text-align: center;
         }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #555;
-        }
-        input[type="radio"] {
-            margin-right: 10px;
+        a {
+            text-decoration: none;
         }
         button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #dc3545;
             color: #ffffff;
             border: none;
             border-radius: 5px;
@@ -49,23 +44,19 @@
             font-size: 16px;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #c82333;
         }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <h2>Quiz</h2>
-        <p>Score: <span th:text="${score}"></span></p>
-        <form th:action="@{/api/quiz/answer}" method="post">
-            <label>Question: <span th:text="${question}"></span></label><br>
-            <input type="radio" id="true" name="answer" value="true" required>
-            <label for="true">True</label><br>
-            <input type="radio" id="false" name="answer" value="false">
-            <label for="false">False</label><br><br>
-
-            <button type="submit">Submit Answer</button>
-        </form>
+    <div class="bad-email-container">
+        <h2>Invalid Email Address</h2>
+        <p>The email address you entered is invalid. Please make sure it includes an "@" symbol and ends with ".com".</p>
+        
+        <a href="/validate-email">
+            <button>Try Again</button>
+        </a>
     </div>
 </body>
 </html>
+
