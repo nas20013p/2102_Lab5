@@ -1,4 +1,4 @@
-The project code is available in the Git repository. The following are the steps required to set up and run the application:
+The following are the steps required to set up and run the application:
 
 1. Clone the repository
    - git clone <repo_url>
