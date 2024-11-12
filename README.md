@@ -6,7 +6,7 @@ The following are the steps required to set up and run the application:
 2. Navigate to the project directory.
    - cd <repo_directory>
    
-3. Run the application using Maven.
+3. Run the system using Maven.
    - mvn clean install
    - mvn spring-boot:run
 
